@@ -1,62 +1,256 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIEGOTECNOMARK</title>
-<style>
-body{font-family:Arial,sans-serif;margin:0;background:#0b1220;color:#fff}
-header{background:#08101d;padding:20px;position:sticky;top:0}
-.logo{font-size:32px;font-weight:bold;color:#3da5ff}
-.hero{padding:60px 20px;text-align:center;background:linear-gradient(135deg,#08101d,#0d47a1)}
-.btn{background:#25D366;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:20px}
-.card{background:#111b2e;padding:15px;border-radius:12px}
-.price{color:#3da5ff;font-size:24px;font-weight:bold}
-footer{padding:30px;text-align:center;background:#08101d}
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;
-width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-text-decoration:none;font-size:30px}
-input{padding:10px;width:90%;max-width:500px}
-</style>
-<script>
+<title>DIEGOTECNOMARK</title><link rel="icon" href="img/logo.png"><style>
+body{
+margin:0;
+font-family:Arial;
+background:#0b1220;
+color:white;
+}
+
+header{
+background:#08101d;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+font-size:24px;
+color:#3da5ff;
+font-weight:bold;
+}
+
+.logo-img{
+width:50px;
+}
+
+.hero{
+text-align:center;
+padding:50px;
+background:linear-gradient(135deg,#08101d,#0d47a1);
+}
+
+.btn{
+background:#25D366;
+padding:12px 20px;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin:5px;
+display:inline-block;
+}
+
+.cita-btn{
+background:#007BFF;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:#111b2e;
+padding:15px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.price{
+color:#3da5ff;
+font-size:22px;
+font-weight:bold;
+}
+
+.buy{
+display:block;
+margin-top:10px;
+background:#25D366;
+padding:12px;
+text-align:center;
+border-radius:8px;
+text-decoration:none;
+color:white;
+}
+
+.cita-producto{
+display:block;
+margin-top:8px;
+background:#007BFF;
+padding:10px;
+text-align:center;
+border-radius:8px;
+text-decoration:none;
+color:white;
+}
+
+.comentarios{
+background:#08101d;
+padding:20px;
+margin:20px;
+border-radius:10px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:none;
+}
+
+.enviar{
+background:#3da5ff;
+color:white;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.comentario{
+background:#111b2e;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+}
+
+footer{
+background:#08101d;
+text-align:center;
+padding:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+color:white;
+}
+</style><script>
+function agregarComentario(){
+ let nombre = document.getElementById("nombre").value;
+ let texto = document.getElementById("comentario").value;
+
+ if(nombre=="" || texto==""){
+  alert("Completa los campos");
+  return;
+ }
+
+ let contenedor = document.getElementById("lista");
+
+ let nuevo = document.createElement("div");
+ nuevo.className = "comentario";
+ nuevo.innerHTML = "<strong>"+nombre+":</strong><br>"+texto;
+
+ contenedor.appendChild(nuevo);
+
+ document.getElementById("nombre").value="";
+ document.getElementById("comentario").value="";
+}
+
 function buscar(){
- let q=document.getElementById('buscar').value.toLowerCase();
- document.querySelectorAll('.card').forEach(c=>{
-  c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
+ let q=document.getElementById("buscar").value.toLowerCase();
+ document.querySelectorAll(".card").forEach(c=>{
+  c.style.display = c.innerText.toLowerCase().includes(q) ? "block" : "none";
  });
 }
-</script>
-</head>
-<body>
-<header>
-<div class="logo">💻 DIEGOTECNOMARK</div>
-</header>
+</script></head>
+<body><header>
+<div class="logo">
+<img src="img/logo.png" class="logo-img">
+<span>DIEGOTECNOMARK</span>
+</div>
+</header><section class="hero">
+<h1>La Mejor Tecnología al Mejor Precio</h1><a class="btn" href="https://wa.me/593980312993">💬 WhatsApp</a>
+<a class="btn cita-btn" href="https://wa.me/593980312993?text=Quiero%20agendar%20cita">📅 Agendar cita</a>
 
-<section class="hero">
-<h1>La Mejor Tecnología al Mejor Precio</h1>
-<p>Tecnología • Calidad • Confianza</p>
-<a class="btn" href="https://wa.me/593980312993">WhatsApp 0980312993</a>
 <br><br>
 <input id="buscar" onkeyup="buscar()" placeholder="Buscar productos...">
-</section>
 
-<h2 style="padding-left:20px">Catálogo</h2>
-<div class="grid">
-<div class="card"><h3>Laptop Gamer</h3><div class="price">$899</div></div>
-<div class="card"><h3>iPhone Pro</h3><div class="price">$999</div></div>
-<div class="card"><h3>Tablet</h3><div class="price">$399</div></div>
-<div class="card"><h3>Smartwatch</h3><div class="price">$149</div></div>
-<div class="card"><h3>Audífonos Bluetooth</h3><div class="price">$79</div></div>
-<div class="card"><h3>Accesorios Gaming</h3><div class="price">$59</div></div>
-</div>
+</section><h2 style="padding-left:20px">Catálogo</h2><div class="grid"><!-- PRODUCTOS --><div class="card">
+<img src="img/lenovo.jpg">
+<h3>Lenovo IdeaPad 3</h3>
+<div class="price">$400 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar Lenovo">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita Lenovo">📅 Agendar cita</a>
+</div><div class="card">
+<img src="img/iphone16.jpg">
+<h3>iPhone 16</h3>
+<div class="price">$789 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar iPhone">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita iPhone">📅 Agendar cita</a>
+</div><div class="card">
+<img src="img/watch.jpg">
+<h3>Apple Watch Series 11</h3>
+<div class="price">$399 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar Watch">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita Watch">📅 Agendar cita</a>
+</div><div class="card">
+<img src="img/airpods.jpg">
+<h3>AirPods Pro 3</h3>
+<div class="price">$390 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar AirPods">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita AirPods">📅 Agendar cita</a>
+</div><div class="card">
+<img src="img/mouse.jpg">
+<h3>Logitech G502</h3>
+<div class="price">$44 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar Mouse">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita Mouse">📅 Agendar cita</a>
+</div><div class="card">
+<img src="img/silla.jpg">
+<h3>Silla Gamer</h3>
+<div class="price">$180 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar Silla">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita Silla">📅 Agendar cita</a>
+</div><div class="card">
+<img src="img/ipad.jpg">
+<h3>iPad 11"</h3>
+<div class="price">$400 USD</div>
+<a class="buy" href="https://wa.me/593980312993?text=Comprar iPad">🛒 Comprar</a>
+<a class="cita-producto" href="https://wa.me/593980312993?text=Cita iPad">📅 Agendar cita</a>
+</div></div><!-- COMENTARIOS --><div class="comentarios">
+<h2>💬 Opiniones de clientes</h2><input id="nombre" placeholder="Tu nombre">
+<textarea id="comentario" placeholder="Escribe tu comentario"></textarea><button class="enviar" onclick="agregarComentario()">Enviar comentario</button>
 
-<footer>
+<div id="lista"></div>
+</div><footer>
 <h3>DIEGOTECNOMARK</h3>
-<p>Guayaquil, Ecuador</p>
+<p>QUITO - Ecuador</p>
 <p>WhatsApp: 0980312993</p>
-</footer>
+</footer><a class="whatsapp" href="https://wa.me/593980312993">💬</a>
 
-<a class="whatsapp" href="https://wa.me/593980312993">☎</a>
 </body>
 </html>
